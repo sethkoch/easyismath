@@ -1,0 +1,1 @@
+angular.module("easyismath",["ui.router"]);

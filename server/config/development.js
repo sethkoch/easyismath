@@ -1,5 +1,5 @@
 module.exports = {
   db: {
-    url: 'mongodb://localhost/jamestownchicken'
+    url: 'mongodb://localhost/easyismath'
   }
 };
