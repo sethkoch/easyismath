@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <link href="lib/bootstrap.min.css" rel="stylesheet">
+
  </head>
 <body class='b1'>
 
 <!-- Begin nav bar -->
 
 
-<div >
+<div ng-controller="MainController as main">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,21 +23,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" ui-sref="home"><img src='content/easyismathsmall.png' /></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav ">
-          <li><a>Front page<span class="sr-only">(current)</span></a></li>
-          <li><a ui-sref="profile">Comics<span class="sr-only">(current)</span></a></li>
-          <li><a ui-sref="profile">Weather<span class="sr-only">(current)</span></a></li>
-          <li><a ui-sref="profile">Art<span class="sr-only">(current)</span></a></li>
-          <li><a ui-sref="profile">Business<span class="sr-only">(current)</span></a></li>
-
+          <li><a ui-sref="home">How it works<span class="sr-only">(current)</span></a></li>
+          <li><a ui-sref="profile">Pricing<span class="sr-only">(current)</span></a></li>
+          <li><a ui-sref="profile">FAQ<span class="sr-only">(current)</span></a></li>
         </ul>
 
 
-        <!-- /.navbar-collapse -->
+        <div ng-show="loggedIn"><button type="button" class="btn btn-danger navbar-btn navbar-right" ng-click='main.out()'>Sign out</button>
+        <button type="button" class="btn btn-primary navbar-btn navbar-right">My Account</button></div>
+        <div ng-hide="loggedIn"><button type="button" class="btn btn-info navbar-btn navbar-right" ui-sref="signin">Sign In</button>
+      </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 

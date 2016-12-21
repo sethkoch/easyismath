@@ -2,6 +2,16 @@ body {
   background-color: whitesmoke;
 }
 
+.firstRow {
+  padding-top: 8px;
+}
+
+
+
+.navbar-brand {
+  padding-top: 4px;
+}
+
 .descbox1 {
   border: 2px solid mediumaquamarine;
   text-align: center;
