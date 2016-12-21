@@ -17,10 +17,12 @@
     "url": "https://github.com/sethkoch/easyismath/issues"
   },
   "homepage": "https://github.com/sethkoch/easyismath#readme",
-
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-jwt": "^0.1.8",
+    "angular-lock": "^1.0.5",
     "angular-ui-router": "^0.3.2",
+    "auth0-lock": "^10.7.3",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
@@ -45,7 +47,6 @@
     "path": "^0.12.7",
     "q": "^1.4.1"
   },
-
   "devDependencies": {
     "angular-mocks": "^1.5.9",
     "babel-cli": "^6.18.0",

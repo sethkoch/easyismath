@@ -1,7 +1,7 @@
 angular.module('easyismath')
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', 'lockProvider', '$urlRouterProvider', function($stateProvider, lockProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+
 
     $stateProvider
 
@@ -12,5 +12,11 @@ angular.module('easyismath')
         css: '../../content/css.css'
       })
 
+       lockProvider.init({
+         clientID: 'PPAP5SR3NyoW8oXgSg9fI3DZ38lCcA3o',
+         domain: 'easyismath.auth0.com'
+    });
+
+        $urlRouterProvider.otherwise('/home');
 
   }])
