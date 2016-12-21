@@ -1,0 +1,80 @@
+body {
+  background-color: whitesmoke;
+}
+
+.descbox1 {
+  border: 2px solid mediumaquamarine;
+  text-align: center;
+  color: mediumaquamarine;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+  margin-bottom:4px;
+}
+
+.descbox2 {
+  border: 2px solid rebeccapurple;
+  text-align: center;
+  color: rebeccapurple;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+    margin-bottom:4px;
+}
+
+.descbox3 {
+  border: 2px solid sienna;
+  text-align: center;
+  color: sienna;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+  margin-bottom:4px;
+}
+
+.descbox4 {
+  border: 2px solid mediumvioletred;
+  text-align: center;
+  color: mediumvioletred;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+  margin-bottom:4px;
+}
+
+.descbox5 {
+  border: 2px solid seagreen;
+  text-align: center;
+  color: seagreen;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+  margin-bottom:4px;
+}
+
+.descbox6 {
+  border: 2px solid steelblue;
+  text-align: center;
+  color: steelblue;
+  font-size: 26px;
+  font-family: Papyrus, fantasy;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: snow;
+  margin-bottom:4px;
+}
+
+.descboxinner {
+  color: black;
+  font-size: 19px;
+}
