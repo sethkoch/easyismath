@@ -1,4 +1,4 @@
 angular.module('easyismath')
-  .controller('MainController', function() {
-
-  })
+  .controller('MainController', ['authService', function(authService) {
+    this.authService = authService;
+  }])
