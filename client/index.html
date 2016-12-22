@@ -37,7 +37,7 @@
 
 
 
-        <div><button type="button" class="btn btn-info navbar-btn navbar-right" ng-click="main.authService.login()">Sign In</button>
+        <div ng-if="!isAuthenticated"><button type="button" class="btn btn-info navbar-btn navbar-right" ng-click="main.authService.login()">Sign In</button>
       </div>
       <div ng-if="isAuthenticated"><button type="button" class="btn btn-info navbar-btn navbar-right" ng-click="main.authService.login()">Sign Out</button>
       </div>
