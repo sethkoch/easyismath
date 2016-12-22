@@ -1,5 +1,5 @@
 angular.module('easyismath')
-  .config(['$stateProvider', 'lockProvider', '$urlRouterProvider', function($stateProvider, lockProvider, $urlRouterProvider) {
+  .config(['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOptionsProvider',  function($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
 
 
 
@@ -16,6 +16,12 @@ angular.module('easyismath')
          clientID: 'PPAP5SR3NyoW8oXgSg9fI3DZ38lCcA3o',
          domain: 'easyismath.auth0.com'
     });
+
+       jwtOptionsProvider.config({
+        tokenGetter: function() {
+          return localStorage.getItem('id_token');
+        }
+       })
 
         $urlRouterProvider.otherwise('/home');
 

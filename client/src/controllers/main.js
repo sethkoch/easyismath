@@ -1,4 +1,5 @@
 angular.module('easyismath')
-  .controller('MainController', ['authService', function(authService) {
+  .controller('MainController', ['$rootScope','authService', function($rootScope, authService) {
     this.authService = authService;
+    console.log($rootScope.isAuthenticated)
   }])

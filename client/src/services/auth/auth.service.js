@@ -19,6 +19,7 @@
     function logout() {
       localStorage.removeItem('id_token');
       authManager.unauthenticate();
+
     }
 
     // Set up the logic for when a user authenticates
@@ -27,6 +28,7 @@
       lock.on('authenticated', function (authResult) {
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
+
       });
     }
 

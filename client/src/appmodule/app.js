@@ -1,7 +1,7 @@
 angular.module('easyismath', ['auth0.lock', 'angular-jwt', 'ui.router'])
 
 
-  .run(['$rootScope', 'authService', 'lock', function ($rootScope, authService, lock) {
+  .run(['$rootScope', 'authService', 'lock', 'authManager', function ($rootScope, authService, lock, authManager) {
     // Put the authService on $rootScope so its methods
     // can be accessed from the nav bar
     $rootScope.authService = authService;
@@ -9,6 +9,9 @@ angular.module('easyismath', ['auth0.lock', 'angular-jwt', 'ui.router'])
     // Register the authentication listener that is
     // set up in auth.service.js
     authService.registerAuthenticationListener();
+
+    //checks token validity after a refresh
+    authManager.checkAuthOnRefresh();
 
     // Register the synchronous hash parser
     // when using UI Router
