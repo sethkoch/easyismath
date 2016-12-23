@@ -6,10 +6,19 @@
     .module('easyismath')
     .service('authService', authService);
 
-  authService.$inject = ['lock', 'authManager'];
+  authService.$inject = ['$q', 'lock', 'authManager'];
 
-  function authService(lock, authManager) {
+  function authService( $q, lock, authManager) {
+    //part of getting user profile
+    var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
+    var deferredProfile = $q.defer();
 
+    if (userProfile) deferredProfile.resolve(userProfile);
+
+    function getProfileDeferred() {
+      return deferredProfile.promise;
+    }
+    // to here
     function login() {
       lock.show();
     }
@@ -26,6 +35,16 @@
     // This method is called from app.run.js
     function registerAuthenticationListener() {
       lock.on('authenticated', function (authResult) {
+        //part of getting user profile from here
+        lock.getProfile(authResult.idToken, function (error, profile) {
+          if (error) {
+            return console.log(error);
+          }
+
+          localStorage.setItem('profile', JSON.stringify(profile));
+          deferredProfile.resolve(profile);
+        });
+        // to here
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
 
@@ -35,7 +54,8 @@
     return {
       login: login,
       logout: logout,
-      registerAuthenticationListener: registerAuthenticationListener
+      registerAuthenticationListener: registerAuthenticationListener,
+      getProfileDeferred: getProfileDeferred
     }
   }
 })();
