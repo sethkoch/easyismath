@@ -7,9 +7,7 @@ var UserSchema = new mongoose.Schema({
   email: {
     type: String
   },
-  points: {
-    type: Number
-  },
+  points: Number,
   userid: String,
   medals: [],
   level: {}

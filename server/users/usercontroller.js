@@ -8,9 +8,7 @@ var createUser = Q.nbind(User.create, User);
 
 module.exports = {
   getUserData: function (req, res, next) {
-      var username = req.body.username;
-      var password = req.body.password;
-      var points = req.body.points;
+      var points = 0;
       var userid = req.body.id;
       var medals = req.body.medals;
       var level = req.body.level;
@@ -19,20 +17,17 @@ module.exports = {
       findUser({userid: userid})
         .then(function (user) {
           if (user) {
+            console.log(user);
             res.json(user);
           }
-          else {
-            createUser({
-              username: username,
-              password: password,
+          else if (!user){
+           return createUser({
               points: points,
               userid: userid,
               medals: medals,
               level: level
             })
-            console.log(user_id);
-            res.json(user_id);
-            next();
+
           }
 
         })
