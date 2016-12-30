@@ -3,9 +3,10 @@ angular.module('easyismath')
     this.authService = authService;
     var that = this;
     this.profile;
+    this.userStuff;
     this.authService.getProfileDeferred().then(function(profile) {
       that.profile = profile;
     }).then(function() {
-    userdata.getData(that.profile.user_id);
+      userdata.getData(that.profile.user_id);
     })
   }])

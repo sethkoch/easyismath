@@ -1,9 +1,9 @@
 angular.module('easyismath')
-  .factory('userdata', ['$http', function($http) {
+  .factory('userdata', ['$http', '$rootScope', function($http, $rootScope) {
     var getData = function(clientID){
       $http.post('api/data', {id: clientID})
         .then(function(res) {
-          console.log(res.data)
+          $rootScope.userStuff = res.data;
         })
     }
     return {
