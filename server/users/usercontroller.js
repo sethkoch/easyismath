@@ -1,10 +1,9 @@
-var Q = require('q');
+
 var config = require('../config/config');
 var User = require('./usermodel.js');
 
 
-var findUser = Q.nbind(User.findOne, User);
-var createUser = Q.nbind(User.create, User);
+
 
 module.exports = {
   getUserData: function (req, res, next) {
@@ -15,29 +14,28 @@ module.exports = {
       // console.log(userid);
 
       // check to see if user already exists
-      findUser({userid: userid})
-        .then(function (user) {
-          if (!user) {
-            return createUser ({
-              points: points,
-              userid: userid,
-              medals: medals,
-              level: level,
-              grade1: 0,
-              grade2: 0,
-              grade3: 0,
-              grade4: 0,
-              grade5: 0,
-              grade6: 0
-            })
-          }
-          if (user) {
-            res.json(user);
-          }
+      User.findOne({userid: userid}, function(err, user) {
+        if (err) throw (err);
+        if (user) res.json(user);
+        if (!user) {
+          var newUser = new User ({
+            points: points,
+            userid: userid,
+            medals: medals,
+            level: level,
+            grade1: 0,
+            grade2: 0,
+            grade3: 0,
+            grade4: 0,
+            grade5: 0,
+            grade6: 0
+          });
+          newUser.save(function(err) {
+          if (err) throw (err)
         })
-        .fail(function (error) {
-        next(error);
-      });
+          res.json(user);
+        }
 
+      })
     }
   }
