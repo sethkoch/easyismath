@@ -3,7 +3,6 @@ angular.module('easyismath')
     this.authService = authService;
     var that = this;
     this.profile;
-    this.userStuff;
     this.authService.getProfileDeferred().then(function(profile) {
       that.profile = profile;
     }).then(function() {

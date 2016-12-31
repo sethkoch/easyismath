@@ -1,16 +1,19 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-  username: {
-    type: String
-  },
-  email: {
-    type: String
-  },
+
   points: Number,
-  userid: String,
+  userid: {
+    type: String,
+    unique: true
+  },
   medals: [],
-  level: {}
+  grade1: Number,
+  grade2: Number,
+  grade3: Number,
+  grade4: Number,
+  grade5: Number,
+  grade6: Number
 });
 
 module.exports = mongoose.model('users', UserSchema);

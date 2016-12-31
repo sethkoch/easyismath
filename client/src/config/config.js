@@ -12,6 +12,13 @@ angular.module('easyismath')
         css: '../../content/css.css'
       })
 
+      .state('missions', {
+        url: '/missions',
+        templateUrl: '../../templates/missions/missions.html',
+        controller: 'MissionsController as mission',
+        css: '../../content/css.css'
+      })
+
        lockProvider.init({
          clientID: 'PPAP5SR3NyoW8oXgSg9fI3DZ38lCcA3o',
          domain: 'easyismath.auth0.com'

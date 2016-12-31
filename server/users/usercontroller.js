@@ -12,24 +12,28 @@ module.exports = {
       var userid = req.body.id;
       var medals = req.body.medals;
       var level = req.body.level;
+      // console.log(userid);
 
       // check to see if user already exists
       findUser({userid: userid})
         .then(function (user) {
-          if (user) {
-            console.log(user);
-            res.json(user);
-          }
-          else if (!user){
-           return createUser({
+          if (!user) {
+            return createUser ({
               points: points,
               userid: userid,
               medals: medals,
-              level: level
+              level: level,
+              grade1: 0,
+              grade2: 0,
+              grade3: 0,
+              grade4: 0,
+              grade5: 0,
+              grade6: 0
             })
-
           }
-
+          if (user) {
+            res.json(user);
+          }
         })
         .fail(function (error) {
         next(error);
