@@ -5,8 +5,6 @@ angular.module('easyismath')
     this.authService.getProfileDeferred().then(function(profile) {
       that.profile = profile;
     }).then(function() {
-      if(that.profile.user_id) {
       userdata.getData(that.profile.user_id);
-      }
     })
   }])

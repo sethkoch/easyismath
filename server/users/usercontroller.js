@@ -23,17 +23,18 @@ module.exports = {
             userid: userid,
             medals: medals,
             level: level,
-            grade1: 0,
-            grade2: 0,
-            grade3: 0,
-            grade4: 0,
-            grade5: 0,
-            grade6: 0
+            grade1: 'Penguin Troubles',
+            grade2: 'Turtle Trouble',
+            grade3: 'Hawks Hurting',
+            grade4: 'Cows Coughing',
+            grade5: 'Whales Whinning',
+            grade6: 'Buffaloes Burping'
           });
           newUser.save(function(err) {
-          if (err) throw (err)
-        })
+          if (err) throw (err);
           res.json(user);
+        })
+
         }
 
       })

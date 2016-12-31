@@ -8,12 +8,12 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
   medals: [],
-  grade1: Number,
-  grade2: Number,
-  grade3: Number,
-  grade4: Number,
-  grade5: Number,
-  grade6: Number
+  grade1: String,
+  grade2: String,
+  grade3: String,
+  grade4: String,
+  grade5: String,
+  grade6: String
 });
 
 module.exports = mongoose.model('users', UserSchema);

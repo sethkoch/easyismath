@@ -6,9 +6,9 @@
     .module('easyismath')
     .service('authService', authService);
 
-  authService.$inject = ['$q', 'lock', 'authManager'];
+  authService.$inject = ['$q', 'lock', 'authManager', '$rootScope'];
 
-  function authService( $q, lock, authManager) {
+  function authService( $q, lock, authManager, $rootScope) {
     //part of getting user profile
     var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
     var deferredProfile = $q.defer();
@@ -28,6 +28,7 @@
     function logout() {
       localStorage.removeItem('id_token');
       localStorage.removeItem('profile');
+      $rootScope.userStuff = '';
       authManager.unauthenticate();
 
     }
