@@ -1,11 +1,11 @@
-<div class="headline" align="center"><img src="content/easyismath.png" /></div>
+<div class="headline" align="center"><img src="https://d37rhhh8kt1fi0.cloudfront.net/img/easyismath.png" /></div>
 <div align="center" ng-bind="userStuff.points"></div>
 <!-- Grade 1 box -->
 <div class='row firstRow'>
   <div class='col-md-3 col-md-offset-1 descbox1'>Grade 1
-    <a ui-sref="{{userStuff.grade1}}"><div class='descboxinner' ng-bind= "userStuff.grade1"> </div></a>
+    <a ng-click="main.level()"><div class='descboxinner' ng-bind= "userStuff.grade1"> </div></a>
     <hr>
-    <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
+    <button class="btn btn-lg btn-primary" ng-click="main.level()"> Click you will</button>
   </div>
 
 <!-- Grade 2 box -->
