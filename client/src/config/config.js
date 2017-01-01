@@ -12,10 +12,10 @@ angular.module('easyismath')
         css: '../../content/css.css'
       })
 
-      .state('missions', {
-        url: '/missions',
-        templateUrl: '../../templates/missions/missions.html',
-        controller: 'MissionsController as mission',
+      .state('Penguin Troubles', {
+        url: '/penguintroubles',
+        templateUrl: '../../templates/missions/grade1/1penguintroubles.html',
+        controller: 'PenguinTroublesController as penguin',
         css: '../../content/css.css'
       })
 
