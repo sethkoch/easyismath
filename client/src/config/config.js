@@ -16,7 +16,6 @@ angular.module('easyismath')
         url: '/penguintroubles',
         templateUrl: '../../templates/missions/grade1/1penguintroubles.html',
         controller: 'PenguinTroublesController as penguin',
-        css: '../../content/css.css'
       })
 
        lockProvider.init({
