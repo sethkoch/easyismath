@@ -1,6 +1,11 @@
 <div class='panel oneBackground'>
+  <div align="center" ng-bind="penguin.penguinsSaved"></div>
   <div class='panel-body' ng-bind-html="penguin.currentText"></div>
   <div align="center" ng-bind-html="penguin.currentImage"></div>
-  <button class='btn btn-large btn-success' ng-bind-html="penguin.currentButtonText"></button>
+
+  <div ng-show="penguin.counter > 1"><input autocomplete="off" autocorrect="off" autocapitalize="off" type="text" ng-model="penguin.answer"></div>
+
+  <button class='btn btn-large btn-success' ng-bind-html="penguin.currentButtonText" ng-click="penguin.clicked()"></button>
+
 
 </div>
