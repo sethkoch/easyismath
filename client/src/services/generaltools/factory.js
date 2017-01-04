@@ -1,4 +1,8 @@
 angular.module('easyismath')
-  .factory('tools', ['$state', '$rootScope', function($state, $rootScope) {
+  .factory('tools', ['$state', '$rootScope', '$http', function($state, $rootScope, $http) {
 
-  }])
+    return {
+
+    }
+
+}])
