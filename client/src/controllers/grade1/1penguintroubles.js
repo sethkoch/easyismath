@@ -8,6 +8,7 @@ angular.module('easyismath')
     this.currentImage;
     this.quizData;
 
+    //pulls data used by the quiz that is hard coded in the server, sets some variables to the initial values
     $http.post('/api/gradeonemissionone', {})
         .then((res) => {
           this.quizData = res.data;
@@ -25,12 +26,14 @@ angular.module('easyismath')
         var length = this.quizData.images.length;
         var pictureNumber = 0;
         this.counter ++;
+        //before questions start
         if (this.counter < 2) {
             this.currentButtonText = $sce.trustAsHtml(this.quizData.buttonText[this.counter]);
             this.currentText = $sce.trustAsHtml(this.quizData.data[this.counter]);
             this.currentImage = $sce.trustAsHtml(this.quizData.images[this.counter]);
             return;
         }
+        //now begins quiz
         if (this.counter > 1) {
             this.currentButtonText = $sce.trustAsHtml("Answer");
             this.currentText = $sce.trustAsHtml("Quick, how many penguins are there?");
@@ -52,7 +55,9 @@ angular.module('easyismath')
                 this.answer = "";
             }
         }
+
         this.pictureBefore = this.lastPictureNumber;
+        //determines that quiz is complete
         if (this.penguinsSaved === 8) {
             this.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             this.currentImage = $sce.trustAsHtml(this.quizData.images[0]);
