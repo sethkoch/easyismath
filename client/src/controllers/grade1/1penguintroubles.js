@@ -11,7 +11,6 @@ angular.module('easyismath')
     $http.post('/api/gradeonemissionone', {})
         .then((res) => {
           this.quizData = res.data;
-          console.log(this.quizData);
           this.currentButtonText = $sce.trustAsHtml(this.quizData.buttonText[this.counter]);
           this.currentText = $sce.trustAsHtml(this.quizData.data[this.counter]);
           this.currentImage = $sce.trustAsHtml(this.quizData.images[this.counter]);
