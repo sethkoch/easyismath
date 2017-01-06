@@ -1,3 +1,4 @@
+(function(){
 angular.module('easyismath')
   .controller('PenguinTroublesController',['$sce', '$http', 'tools', '$rootScope', function($sce, $http, tools, $rootScope) {
     this.counter = 0;
@@ -37,7 +38,7 @@ angular.module('easyismath')
             //button text stays answer
             this.currentButtonText = $sce.trustAsHtml("Answer");
             //text now stays the same
-            this.currentText = $sce.trustAsHtml("Quick, how many penguins are there?");
+            this.currentText = $sce.trustAsHtml("Quick, how many penguins are there?  Get 8 points to win!");
 
             //gets random image from services/generaltools/factory.js
             this.currentImage = $sce.trustAsHtml(tools.getImage(this.quizData.images, 2));
@@ -51,9 +52,11 @@ angular.module('easyismath')
         }
 
         if (this.penguinsSaved === 8) {
+
             this.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             this.currentImage = $sce.trustAsHtml(this.quizData.images[0]);
             this.currentButtonText = $sce.trustAsHtml("Your Reward");
         }
     }
   }])
+})();

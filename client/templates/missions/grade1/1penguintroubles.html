@@ -3,7 +3,7 @@
   <div class='panel-body' ng-bind-html="penguin.currentText"></div>
   <div align="center" ng-bind-html="penguin.currentImage"></div>
 
-  <div ng-show="penguin.counter > 1"><input autocomplete="off" autocorrect="off" autocapitalize="off" type="text" ng-model="penguin.answer"></div>
+  <div ng-show="penguin.counter > 1 && penguin.penguinsSaved !== 8 "><input autocomplete="off" autocorrect="off" autocapitalize="off" type="text" ng-model="penguin.answer"></div>
 
   <button class='btn btn-large btn-success' ng-bind-html="penguin.currentButtonText" ng-click="penguin.clicked()"></button>
 

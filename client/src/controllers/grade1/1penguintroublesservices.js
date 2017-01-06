@@ -1,6 +1,6 @@
+(function(){
 angular.module('easyismath')
-  .factory('oneone', function() {
-
+  .factory('oneone', ['$http', function($http) {
 
 
 
@@ -11,4 +11,5 @@ angular.module('easyismath')
     return {
 
     }
-  })
+  }])
+})();
