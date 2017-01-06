@@ -18,15 +18,14 @@ angular.module('easyismath')
         })
 
     //to make sure that pictureNumber picked inside of clicked is not the same as the last number, I don't want the same picture twice.
-    this.lastPictureNumber = 0;
-    //just don't worry about it, it works, leave this alone in a cold dark place where it belongs
-    this.pictureBefore = 0;
+    $rootScope.lastPictureNumber = 0;
+    //this stores the number of which number the last picture was so that it can be compared to the answer for scoring.
+    $rootScope.answerCompare;
 
     this.clicked = function() {
         var length = this.quizData.images.length;
-        var pictureNumber = 0;
         this.counter ++;
-        //before questions start
+        //before questions start, sets the pictures and text for initial story
         if (this.counter < 2) {
             this.currentButtonText = $sce.trustAsHtml(this.quizData.buttonText[this.counter]);
             this.currentText = $sce.trustAsHtml(this.quizData.data[this.counter]);
@@ -35,29 +34,22 @@ angular.module('easyismath')
         }
         //now begins quiz
         if (this.counter > 1) {
+            //button text stays answer
             this.currentButtonText = $sce.trustAsHtml("Answer");
+            //text now stays the same
             this.currentText = $sce.trustAsHtml("Quick, how many penguins are there?");
-            this.getImage = function() {
-              var getNumber = function () {
-                return Math.floor(Math.random() * (length - 2))
-              }
-              pictureNumber = getNumber();
-              while(pictureNumber === this.lastPictureNumber) {
-                pictureNumber = getNumber();
-              }
-              this.lastPictureNumber = pictureNumber;
-              return this.quizData.images.slice(2)[pictureNumber];
-            }
-            this.currentImage = $sce.trustAsHtml(this.getImage());
 
-            if(Number(this.answer) === this.quizData.questionAnswers[this.pictureBefore]) {
+            //gets random image from services/generaltools/factory.js
+            this.currentImage = $sce.trustAsHtml(tools.getImage(this.quizData.images, 2));
+            //the first quiz image showed is shown before an answer is recorded.  The answer will be recorded on the next picture shown, this is why a answerCompare var is neccessary.
+            if(Number(this.answer) === this.quizData.questionAnswers[$rootScope.answerCompare]) {
                 this.penguinsSaved ++;
                 this.answer = "";
             }
+            $rootScope.answerCompare = $rootScope.lastPictureNumber;
+            this.answer = "";
         }
 
-        this.pictureBefore = this.lastPictureNumber;
-        //determines that quiz is complete
         if (this.penguinsSaved === 8) {
             this.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             this.currentImage = $sce.trustAsHtml(this.quizData.images[0]);
