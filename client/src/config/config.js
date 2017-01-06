@@ -11,11 +11,17 @@ angular.module('easyismath')
         controller: 'MainController as main',
         css: '../../content/css.css'
       })
-
+      //this state is chosen by a string, that's why the space
       .state('Penguin Troubles', {
         url: '/penguintroubles',
         templateUrl: '../../templates/missions/grade1/1penguintroubles.html',
-        controller: 'PenguinTroublesController as penguin',
+        controller: 'PenguinTroublesController as penguin'
+      })
+
+      .state('profile', {
+        url:'/profile',
+        templateUrl: '../../templates/profile.html',
+        controller: 'ProfileController as profile'
       })
 
        lockProvider.init({
