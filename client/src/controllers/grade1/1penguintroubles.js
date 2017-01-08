@@ -1,6 +1,6 @@
 (function(){
 angular.module('easyismath')
-  .controller('PenguinTroublesController',['$sce', '$http', 'tools', '$rootScope', 'oneone', function($sce, $http, tools, $rootScope, oneone) {
+  .controller('PenguinTroublesController',['$sce', '$http', 'tools', '$rootScope', 'oneone','$window', function($sce, $http, tools, $rootScope, oneone, $window) {
     var vm = this;
     vm.counter = 0;
     vm.answer="";
@@ -71,7 +71,7 @@ angular.module('easyismath')
 
             vm.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             vm.currentImage = $sce.trustAsHtml(vm.quizData.images[0]);
-            vm.currentButtonText = $sce.trustAsHtml("Your Reward");
+            oneone.rewardMedal($window.localStorage.userid,"Pete");
         }
     }
   }])

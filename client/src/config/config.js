@@ -1,7 +1,7 @@
 angular.module('easyismath')
   .config(['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOptionsProvider',  function($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
 
-
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
 
@@ -24,6 +24,12 @@ angular.module('easyismath')
         controller: 'ProfileController as profile'
       })
 
+      .state('reward', {
+        url: '/reward',
+        templateUrl: '../../templates/reward.html',
+        controller: 'RewardController as reward'
+      })
+
        lockProvider.init({
          clientID: 'PPAP5SR3NyoW8oXgSg9fI3DZ38lCcA3o',
          domain: 'easyismath.auth0.com'
@@ -35,6 +41,6 @@ angular.module('easyismath')
         }
        })
 
-        $urlRouterProvider.otherwise('/home');
+
 
   }])

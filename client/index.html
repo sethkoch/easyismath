@@ -12,7 +12,7 @@
 <!-- Begin nav bar -->
 
 
-<div ng-controller="MainController as main">
+<div ng-controller="NavbarController as nav">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,11 +39,12 @@
       <button ng-if="isAuthenticated" type="button" class="btn btn-primary navbar-btn navbar-right" ui-sref="profile">My Profile</button>
 
 
-      <button ng-if="!isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="main.authService.login()">Sign In</button>
+      <button ng-if="!isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.login()">Sign In</button>
 
-      <button ng-if="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="main.authService.logout()">Sign Out</button>
+      <button ng-if="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.logout()">Sign Out</button>
 
-      <button ng-if="isAuthenticated" type="button" class="btn btn-success navbar-btn navbar-right" ng-bind="main.profile.nickname"></button>
+      <button ng-if="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-bind="auth0Stuff.nickname"></button>
+
       <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

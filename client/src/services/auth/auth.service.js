@@ -28,6 +28,7 @@
     function logout() {
       localStorage.removeItem('id_token');
       localStorage.removeItem('profile');
+      localStorage.removeItem('userProfile');
       $rootScope.userStuff = '';
       authManager.unauthenticate();
 
@@ -44,6 +45,7 @@
           }
 
           localStorage.setItem('profile', JSON.stringify(profile));
+          $rootScope.auth0Stuff = profile;
           deferredProfile.resolve(profile);
         });
         // to here

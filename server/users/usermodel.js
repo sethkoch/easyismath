@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  medals: [],
+  medals: [String],
   grade1: String,
   grade2: String,
   grade3: String,

@@ -3,7 +3,8 @@ angular.module('easyismath')
   .factory('oneone', ['$http', function($http) {
 
     return {
-      getData : getData
+      getData : getData,
+      rewardMedal: rewardMedal
     }
 
     function getData() {
@@ -20,6 +21,12 @@ angular.module('easyismath')
       }
     }
 
+    function rewardMedal(user, medal) {
+      $http.post('/api/rewardmedal', {userid:user , medal:medal})
+        .then(function(res) {
+
+        })
+    }
 
 
 
