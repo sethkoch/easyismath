@@ -46,9 +46,8 @@ module.exports = {
   },
 
     addMedal: function(req, res, next) {
-      var userid = req.body.id;
+      var userid = req.body.userid;
       var medal = req.body.medal;
-      console.log(medal);
       User.findOneAndUpdate({userid: userid}, {$push:{medals : medal}}, function (err, user){
         if (err) throw err;
         res.json(user);

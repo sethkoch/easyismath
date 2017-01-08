@@ -45,7 +45,6 @@
           }
 
           localStorage.setItem('profile', JSON.stringify(profile));
-          $rootScope.auth0Stuff = profile;
           deferredProfile.resolve(profile);
         });
         // to here

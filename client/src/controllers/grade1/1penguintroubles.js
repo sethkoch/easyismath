@@ -71,7 +71,7 @@ angular.module('easyismath')
 
             vm.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             vm.currentImage = $sce.trustAsHtml(vm.quizData.images[0]);
-            oneone.rewardMedal($window.localStorage.userid,"Pete");
+            oneone.rewardMedal(JSON.parse($window.localStorage.profile).user_id,"Pete");
         }
     }
   }])
