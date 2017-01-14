@@ -44,14 +44,21 @@ module.exports = {
       }
     });
   },
-
+    //can be called to add a medal to the user
     addMedal: function(req, res, next) {
       var userid = req.body.userid;
       var medal = req.body.medal;
+      var upLevel = req.body.level;
       User.findOneAndUpdate({userid: userid}, {$push:{medals : medal}}, function (err, user){
         if (err) throw err;
-        res.json(user);
+        user.grade1 = upLevel
+        user.save(function(err){
+          if (err) throw err;
+          res.json(user);
+        })
+
       })
     }
+
 
   }
