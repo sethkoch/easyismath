@@ -1,6 +1,6 @@
 (function(){
 angular.module('easyismath')
-  .controller('PenguinTroublesController',['$sce', '$http', 'tools', '$rootScope', 'oneone','$window', function($sce, $http, tools, $rootScope, oneone, $window) {
+  .controller('PenguinTroublesController',['$sce', '$http', 'tools', '$rootScope', 'oneone','$window', '$state', function($sce, $http, tools, $rootScope, oneone, $window, $state) {
     var vm = this;
     vm.counter = 0;
     vm.answer="";
@@ -10,6 +10,8 @@ angular.module('easyismath')
     vm.currentImage;
     vm.quizData;
 
+    //to lock up /penguintroubles
+    if (!$rootScope.isAuthenticated) $state.go('home');
 
     //pulls data used by the quiz that is hard coded in the server, sets some variables to the initial values 1 penguintroublesservices.js does the api calling- from here
     activate();
