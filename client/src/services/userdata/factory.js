@@ -4,7 +4,7 @@ angular.module('easyismath')
       $http.post('api/data', {id: clientID})
         .then(function(res) {
           $rootScope.userStuff = res.data;
-          $window.localStorage.setItem('userProfile', JSON.stringify(res.data));
+          $window.sessionStorage.setItem('userProfile', JSON.stringify(res.data));
         })
     }
     return {

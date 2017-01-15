@@ -1,5 +1,6 @@
 angular.module('easyismath')
-  .controller('MainController', ['$rootScope','authService', 'userdata', '$state', function($rootScope, authService, userdata, $state) {
+  .controller('MainController', ['$rootScope','authService', 'userdata', '$state', '$window', function($rootScope, authService, userdata, $state, $window) {
+
     var vm = this;
     // vm.authService = authService;
     vm.profile;

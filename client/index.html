@@ -36,12 +36,12 @@
         </ul>
 
 
-      <button ng-if="isAuthenticated" type="button" class="btn btn-primary navbar-btn navbar-right" ui-sref="profile">My Profile</button>
+      <button ng-show="isAuthenticated" type="button" class="btn btn-primary navbar-btn navbar-right" ui-sref="profile">My Profile</button>
 
 
-      <button ng-if="!isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.login()">Sign In</button>
+      <button ng-show="!isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.login()">Sign In</button>
 
-      <button ng-if="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.logout()">Sign Out</button>
+      <button ng-show="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.logout()">Sign Out</button>
 
 
       <!-- /.navbar-collapse -->
