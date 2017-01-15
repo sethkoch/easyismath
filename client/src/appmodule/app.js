@@ -14,6 +14,7 @@ angular.module('easyismath', ['auth0.lock', 'angular-jwt', 'ui.router'])
     authManager.checkAuthOnRefresh();
 
 
+
     // Register the synchronous hash parser
     // when using UI Router
     lock.interceptHash();

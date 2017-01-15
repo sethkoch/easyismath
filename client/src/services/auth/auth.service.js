@@ -10,7 +10,7 @@
 
   function authService( $q, lock, authManager, $rootScope) {
     //part of getting user profile
-    var userProfile = JSON.parse(sessionStorage.getItem('profile')) || null;
+    var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
     var deferredProfile = $q.defer();
 
     if (userProfile) deferredProfile.resolve(userProfile);
@@ -27,8 +27,8 @@
     // id_token and profile
     function logout() {
       localStorage.removeItem('id_token');
-      sessionStorage.removeItem('profile');
-      sessionStorage.removeItem('userProfile');
+      localStorage.removeItem('profile');
+      localStorage.removeItem('userProfile');
       $rootScope.userStuff = '';
       authManager.unauthenticate();
 
@@ -44,7 +44,7 @@
             return console.log(error);
           }
 
-          sessionStorage.setItem('profile', JSON.stringify(profile));
+          localStorage.setItem('profile', JSON.stringify(profile));
           deferredProfile.resolve(profile);
         });
         // to here
