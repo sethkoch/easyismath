@@ -25,6 +25,10 @@ angular.module('easyismath')
     }
 
     function firstClick() {
+      if (this.counter > 3) {
+        reward();
+        return;
+      }
       if (this.counter > 2) {
        this.problems = true;
        this.button = $sce.trustAsHtml(this.hardData.button[2]);
@@ -44,6 +48,7 @@ angular.module('easyismath')
       this.image = $sce.trustAsHtml(this.hardData.images[this.counter]);
       this.text = $sce.trustAsHtml(this.hardData.text[this.counter]);
       this.button = $sce.trustAsHtml(this.hardData.button[this.counter]);
+      //gives me a variable sun that will be this binded to the HotHotSunController;
       sun = this;
       this.counter ++;
     }
@@ -78,10 +83,21 @@ angular.module('easyismath')
     }
 
     function winner () {
+      //sets button back to calling firstClick on click, sets image to water, and button text to thank you
       sun.problems = false;
       sun.image = $sce.trustAsHtml(sun.hardData.images[2]);
       sun.text = $sce.trustAsHtml(sun.hardData.text[3]);
       sun.button = $sce.trustAsHtml(sun.hardData.button[3]);
+    }
+
+    function reward () {
+      $window.localStorage.reward = "Jumbo";
+      $window.localStorage.rewardImage = "<img src='https://d37rhhh8kt1fi0.cloudfront.net/img/grade1/1-2/1-2jumbo.png' class='img-responsive' style='max-height:460px' />";
+      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3: New Town Blues" })
+        .then(function(res) {
+            $state.go('reward');
+          })
+
     }
 
 
