@@ -59,7 +59,7 @@ angular.module('easyismath')
     function  nextClick() {
       //by the time this is clicked one question has already been answered so I check that first
       if (this.correctAnswer === Number(this.answer)) this.score ++;
-      if (this.score === 2) {
+      if (this.score === 20) {
         winner();
         return;
       }
