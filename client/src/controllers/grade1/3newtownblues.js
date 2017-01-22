@@ -1,6 +1,6 @@
 (function() {
 angular.module('easyismath')
-  .controller('NewTownBluesController', ['$rootScope', 'onethree', '$sce', '$scope', '$window', '$state', function($rootScope, onethree, $sce, $scope, $window, $state) {
+  .controller('NewTownBluesController', ['$rootScope', 'onethree', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onethree, $sce, $scope, $window, $state, tools) {
     //to lock up
     if (!$rootScope.isAuthenticated) $state.go('home');
     //makes sure level 1 has been completed, if not go to home
@@ -32,7 +32,7 @@ angular.module('easyismath')
     }
 
     function getData() {
-        return onethree.getData()
+        return tools.getData('/api/gradeonemissionthree')
             .then(function(data) {
                 vm.hardData = data;
                 return vm.hardData;

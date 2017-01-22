@@ -26,7 +26,7 @@ angular.module('easyismath')
     }
 
     function getData() {
-        return oneone.getData()
+        return tools.getData('/api/gradeonemissionone')
             .then(function(data) {
                 vm.quizData = data;
                 return vm.quizData;
@@ -56,7 +56,7 @@ angular.module('easyismath')
             //button text stays answer
             vm.currentButtonText = $sce.trustAsHtml("Answer");
             //text now stays the same
-            vm.currentText = $sce.trustAsHtml("Quick, how many penguins are there?  Get 8 points to win!");
+            vm.currentText = $sce.trustAsHtml("Quick, count the penguins! <br> We need to know how many boats to get.<br>  Get 8 points to win!");
 
             //gets random image from services/generaltools/factory.js
             vm.currentImage = $sce.trustAsHtml(tools.getImage(vm.quizData.images, 2));

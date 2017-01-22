@@ -1,9 +1,8 @@
 (function(){
 angular.module('easyismath')
-  .factory('onetwo', ['$http', '$state', '$rootScope', '$sce', '$window', '$timeout', function($http, $state, $rootScope, $sce, $window, $timeout) {
+  .factory('onetwo', ['$http', '$state', '$rootScope', '$sce', '$window', '$timeout', 'tools', function($http, $state, $rootScope, $sce, $window, $timeout, tools) {
 
     return {
-      getData : getData,
       firstClick: firstClick,
       nextClick: nextClick
     }
@@ -11,19 +10,6 @@ angular.module('easyismath')
     var sun;
     var scope;
 
-    function getData() {
-      return $http.post('/api/gradeonemissiontwo', {})
-        .then(getDataComplete)
-        .catch(getDataFailed);
-
-      function getDataComplete(res) {
-        return res.data
-      }
-
-      function getDataFailed(err) {
-        console.log(err);
-      }
-    }
 
     function firstClick() {
       if (this.counter > 3) {
@@ -34,7 +20,7 @@ angular.module('easyismath')
        this.problems = true;
        this.button = $sce.trustAsHtml(this.hardData.button[2]);
        //this creates the first addition problem, prints it to the screen, and stores the correct answer in the variable correctAnswer
-       var nums = randomAddProblem();
+       var nums = tools.randomTwoNumAdd(5);
        this.text = $sce.trustAsHtml(nums.none + " + " + nums.ntwo + " = ");
        this.correctAnswer = nums.answer
        this.counter ++;
@@ -76,23 +62,12 @@ angular.module('easyismath')
       }
 
 
-      var nums = randomAddProblem();
+      var nums = tools.randomTwoNumAdd(5);
       this.text = $sce.trustAsHtml(nums.none + " + " + nums.ntwo + " = ");
       this.correctAnswer = nums.answer;
       this.answer = "";
     }
 
-
-    function randomAddProblem () {
-      var randomNumber1 = Math.floor(Math.random() * 10);
-      var randomNumber2 = Math.floor(Math.random() * 10);
-      var answer = randomNumber1 + randomNumber2;
-      return {
-        none : randomNumber1,
-        ntwo : randomNumber2,
-        answer : answer
-      }
-    }
 
     function winner () {
       //sets button back to calling firstClick on click, sets image to water, and button text to thank you

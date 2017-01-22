@@ -3,23 +3,9 @@ angular.module('easyismath')
   .factory('oneone', ['$http', '$state', '$rootScope', '$sce', '$window', function($http, $state, $rootScope, $sce, $window) {
 
     return {
-      getData : getData,
       rewardMedal: rewardMedal
     }
 
-    function getData() {
-      return $http.post('/api/gradeonemissionone', {})
-        .then(getDataComplete)
-        .catch(getDataFailed);
-
-      function getDataComplete(res) {
-        return res.data
-      }
-
-      function getDataFailed(err) {
-        console.log(err);
-      }
-    }
 
     function rewardMedal(user, medal, level, points) {
       $window.localStorage.reward = "Pete";
