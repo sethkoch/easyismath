@@ -1,9 +1,19 @@
 <div class='panel oneBackground'>
 <div ng-show="sun.problems">Score:  {{sun.score}}</div>
   <div ng-bind-html="sun.text"></div>
-  <div ng-show="sun.problems"><input autocomplete="off" autocorrect="off" autocapitalize="off" type="text" ng-model="sun.answer"></div>
+
+
+  <div ng-show="sun.problems">
+    <form ng-submit="sun.clicked2()">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off"  autofocus ng-model="sun.answer">
+    </form>
+  </div>
+
+
+  <div ng-show="sun.problems" class="quizbut" ng-bind-html="sun.button" ng-click='sun.clicked2()'></div>
+
   <div align="center" class="picture" ng-bind-html="sun.image"></div>
   <div ng-hide="sun.problems" class="quizbut" ng-bind-html="sun.button" ng-click='sun.clicked1()'></div>
-  <div ng-show="sun.problems" class="quizbut" ng-bind-html="sun.button" ng-click='sun.clicked2()'></div>
+
 
 </div>

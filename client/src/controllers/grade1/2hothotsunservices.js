@@ -1,6 +1,6 @@
 (function(){
 angular.module('easyismath')
-  .factory('onetwo', ['$http', '$state', '$rootScope', '$sce', '$window', function($http, $state, $rootScope, $sce, $window) {
+  .factory('onetwo', ['$http', '$state', '$rootScope', '$sce', '$window', '$timeout', function($http, $state, $rootScope, $sce, $window, $timeout) {
 
     return {
       getData : getData,
@@ -58,24 +58,24 @@ angular.module('easyismath')
 
 
     function  nextClick() {
-      //by the time this is clicked one question has already been answered so I check that first
-      if (this.correctAnswer === Number(this.answer)) {
-        this.score ++;
-        sun.image = $sce.trustAsHtml(sun.hardData.images[4]);
-        setTimeout(function() {
-          putImageBack;
-        },500)
-
-      }
-      if (this.correctAnswer !== Number(this.answer)) {
-        this.image = $sce.trustAsHtml(this.hardData.images[5]);
-        putImageBack();
-      }
-
+      //hijacks to check if we have a winner
       if (this.score === 20) {
         winner();
         return;
       }
+      //by the time this is clicked one question has already been answered so I check that first
+      if (this.correctAnswer === Number(this.answer)) {
+        this.score ++;
+        sun.image = $sce.trustAsHtml(sun.hardData.images[4]);
+        $timeout(putImageBack, 500)
+
+      }
+      if (this.correctAnswer !== Number(this.answer)) {
+        this.image = $sce.trustAsHtml(this.hardData.images[5]);
+        $timeout(putImageBack, 500);
+      }
+
+
       var nums = randomAddProblem();
       this.text = $sce.trustAsHtml(nums.none + " + " + nums.ntwo + " = ");
       this.correctAnswer = nums.answer;
