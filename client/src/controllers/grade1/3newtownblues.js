@@ -5,6 +5,8 @@ angular.module('easyismath')
     if (!$rootScope.isAuthenticated) $state.go('home');
     //makes sure level 1 has been completed, if not go to home
     if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Jumbo") === -1) $state.go('home');
+    //makes sure this leve has not already been completed - if it has, then they will have Lisa
+    if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Lisa") !== -1) $state.go('home');
 
     var vm = this;
     vm.hardData;

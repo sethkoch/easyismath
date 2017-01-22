@@ -13,7 +13,8 @@ angular.module('easyismath')
 
     function firstClick() {
       if (this.counter > 3) {
-        reward();
+        tools.setReward("Jumbo", "<img src='https://d37rhhh8kt1fi0.cloudfront.net/img/grade1/1-2/1-2jumbo.png' class='img-responsive' style='max-height:460px' />");
+        tools.saveReward("Jumbo", "Level 3 : New Town Blues", 800 );
         return;
       }
       if (this.counter > 2) {
@@ -77,15 +78,6 @@ angular.module('easyismath')
       sun.button = $sce.trustAsHtml(sun.hardData.button[3]);
     }
 
-    function reward () {
-      $window.localStorage.reward = "Jumbo";
-      $window.localStorage.rewardImage = "<img src='https://d37rhhh8kt1fi0.cloudfront.net/img/grade1/1-2/1-2jumbo.png' class='img-responsive' style='max-height:460px' />";
-      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3 : New Town Blues", points: 800 })
-        .then(function(res) {
-            $state.go('reward');
-          })
-
-    }
 
     function putImageBack () {
         sun.image = $sce.trustAsHtml(sun.hardData.images[1]);

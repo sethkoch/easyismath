@@ -13,6 +13,9 @@ angular.module('easyismath')
     //to lock up /penguintroubles
     if (!$rootScope.isAuthenticated) $state.go('home');
 
+    //makes sure this level has not already been completed
+    if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Pete") !== -1) $state.go('home');
+
     //pulls data used by the quiz that is hard coded in the server, sets some variables to the initial values 1 penguintroublesservices.js does the api calling- from here
     activate();
 
