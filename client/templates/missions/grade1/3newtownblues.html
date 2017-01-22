@@ -1,0 +1,19 @@
+<div class='panel oneBackground'>
+<div ng-show="newtown.problems">Score:  {{newtown.score}}</div>
+  <div ng-bind-html="newtown.text"></div>
+
+
+  <div ng-show="newtown.problems">
+    <form ng-submit="newtown.clicked2()">
+      <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off"  autofocus ng-model="newtown.answer">
+    </form>
+  </div>
+
+
+  <div ng-show="newtown.problems" class="quizbut" ng-bind-html="newtown.button" ng-click='newtown.clicked2()'></div>
+
+  <div align="center" class="picture" ng-bind-html="newtown.image"></div>
+  <div ng-hide="newtown.problems" class="quizbut" ng-bind-html="newtown.button" ng-click='newtown.clicked1()'></div>
+
+
+</div>

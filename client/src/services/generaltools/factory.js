@@ -23,14 +23,26 @@ angular.module('easyismath')
 
          picture = arrayOfImages.slice(startSlice)[pictureNumber];
     }
-    inner();
-    return picture;
-  }
+      inner();
+      return picture;
+    }
+
+    var randomTwoNumAdd = function(maxNum) {
+      var randomNumber1 = Math.floor(Math.random() * maxNum);
+      var randomNumber2 = Math.floor(Math.random() * maxNum);
+      var answer = randomNumber1 + randomNumber2;
+      return {
+        none : randomNumber1,
+        ntwo : randomNumber2,
+        answer : answer
+      }
+    }
 
 
     return {
       getRandomNumber: getRandomNumber,
-      getImage: getImage
+      getImage: getImage,
+      randomTwoNumAdd: randomTwoNumAdd
     }
 
 }])

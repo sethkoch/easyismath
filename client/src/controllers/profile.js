@@ -12,5 +12,6 @@ angular.module('easyismath')
     //list all medals and true if possessed otherwise false
     vm.pete = vm.medals.indexOf("Pete") !== -1 || false;
     vm.jumbo = vm.medals.indexOf("Jumbo") !== -1 || false;
+    vm.lisa = vm.medals.indexOf("Lisa") !== -1 || false;
 
   }])
