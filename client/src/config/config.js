@@ -26,6 +26,12 @@ angular.module('easyismath')
         controller: 'HotHotSunController as sun'
       })
 
+      .state('Level 3 : New Town Blues', {
+        url: '/newtownblues',
+        templateUrl: '../../templates/missions/grade1/3newtownblues.html',
+        controller: 'NewTownBluesController as newtown'
+      })
+
       .state('profile', {
         url:'/profile',
         templateUrl: '../../templates/profile.html',

@@ -1,8 +1,11 @@
 (function() {
 angular.module('easyismath')
-  .controller('HotHotSunController', ['$rootScope', 'onetwo', '$sce', function($rootScope, onetwo, $sce) {
+  .controller('HotHotSunController', ['$rootScope', 'onetwo', '$sce', '$scope', '$window', '$state', function($rootScope, onetwo, $sce, $scope, $window, $state) {
     //to lock up
     if (!$rootScope.isAuthenticated) $state.go('home');
+    //makes sure level 1 has been completed, if not go to home
+    if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Pete") === -1) $state.go('home');
+
     var vm = this;
     vm.hardData;
     vm.image;
@@ -36,8 +39,6 @@ angular.module('easyismath')
             });
     }
     // - to here
-
-
 
   }])
 })();

@@ -9,6 +9,7 @@ angular.module('easyismath')
     }
 
     var sun;
+    var scope;
 
     function getData() {
       return $http.post('/api/gradeonemissiontwo', {})
@@ -58,7 +59,19 @@ angular.module('easyismath')
 
     function  nextClick() {
       //by the time this is clicked one question has already been answered so I check that first
-      if (this.correctAnswer === Number(this.answer)) this.score ++;
+      if (this.correctAnswer === Number(this.answer)) {
+        this.score ++;
+        sun.image = $sce.trustAsHtml(sun.hardData.images[4]);
+        setTimeout(function() {
+          putImageBack;
+        },500)
+
+      }
+      if (this.correctAnswer !== Number(this.answer)) {
+        this.image = $sce.trustAsHtml(this.hardData.images[5]);
+        putImageBack();
+      }
+
       if (this.score === 20) {
         winner();
         return;
@@ -68,7 +81,6 @@ angular.module('easyismath')
       this.correctAnswer = nums.answer;
       this.answer = "";
     }
-
 
 
     function randomAddProblem () {
@@ -93,13 +105,16 @@ angular.module('easyismath')
     function reward () {
       $window.localStorage.reward = "Jumbo";
       $window.localStorage.rewardImage = "<img src='https://d37rhhh8kt1fi0.cloudfront.net/img/grade1/1-2/1-2jumbo.png' class='img-responsive' style='max-height:460px' />";
-      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3: New Town Blues" })
+      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3 : New Town Blues" })
         .then(function(res) {
             $state.go('reward');
           })
 
     }
 
+    function putImageBack () {
+        sun.image = $sce.trustAsHtml(sun.hardData.images[1]);
+    }
 
 
   }])

@@ -1,0 +1,1 @@
+// if (!$rootScope.isAuthenticated) $state.go('home');
