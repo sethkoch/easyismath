@@ -88,3 +88,12 @@ body {
   color: black;
   font-size: 19px;
 }
+/*displays points at top of screen*/
+.yourpoints {
+  font-size: 28px;
+  color:darkblue;
+  font-weight: bold;
+  background-color: gold;
+}
+
+

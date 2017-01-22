@@ -4,6 +4,7 @@ angular.module('easyismath')
     if(!$rootScope.isAuthenticated) {
       $window.localStorage.clear();
     }
+
     var vm = this;
     // vm.authService = authService;
     vm.profile;

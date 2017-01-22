@@ -49,9 +49,12 @@ module.exports = {
       var userid = req.body.userid;
       var medal = req.body.medal;
       var upLevel = req.body.level;
+      var points = req.body.points;
+      console.log(typeof points);
       User.findOneAndUpdate({userid: userid}, {$push:{medals : medal}}, function (err, user){
         if (err) throw err;
         user.grade1 = upLevel
+        user.points += points
         user.save(function(err){
           if (err) throw err;
           res.json(user);

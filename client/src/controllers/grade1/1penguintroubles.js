@@ -51,7 +51,7 @@ angular.module('easyismath')
             vm.currentImage = $sce.trustAsHtml(vm.quizData.images[vm.counter]);
             return;
         }
-        //now begins quiz
+        //now quiz begins
         if (vm.counter > 1) {
             //button text stays answer
             vm.currentButtonText = $sce.trustAsHtml("Answer");
@@ -62,6 +62,7 @@ angular.module('easyismath')
             vm.currentImage = $sce.trustAsHtml(tools.getImage(vm.quizData.images, 2));
             //the first quiz image showed is shown before an answer is recorded.  The answer will be recorded on the next picture shown, vm is why a answerCompare var is neccessary.
             if(Number(vm.answer) === vm.quizData.questionAnswers[$rootScope.answerCompare]) {
+
                 vm.penguinsSaved ++;
                 vm.answer = "";
             }
@@ -73,7 +74,7 @@ angular.module('easyismath')
 
             vm.currentText = $sce.trustAsHtml("You did it, you saved the penguins!");
             vm.currentImage = $sce.trustAsHtml(vm.quizData.images[0]);
-            oneone.rewardMedal(JSON.parse($window.localStorage.profile).user_id,"Pete", "Level 2 : Hot, Hot Sun");
+            oneone.rewardMedal(JSON.parse($window.localStorage.profile).user_id,"Pete", "Level 2 : Hot, Hot Sun", "400");
         }
     }
   }])

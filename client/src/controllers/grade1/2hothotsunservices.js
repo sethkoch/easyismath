@@ -105,7 +105,7 @@ angular.module('easyismath')
     function reward () {
       $window.localStorage.reward = "Jumbo";
       $window.localStorage.rewardImage = "<img src='https://d37rhhh8kt1fi0.cloudfront.net/img/grade1/1-2/1-2jumbo.png' class='img-responsive' style='max-height:460px' />";
-      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3 : New Town Blues" })
+      $http.post('/api/rewardmedal', {userid:JSON.parse($window.localStorage.profile).user_id, medal: "Jumbo", level: "Level 3 : New Town Blues", points: 800 })
         .then(function(res) {
             $state.go('reward');
           })
