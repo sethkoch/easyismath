@@ -32,6 +32,12 @@ angular.module('easyismath')
         controller: 'NewTownBluesController as newtown'
       })
 
+      .state('Level 4 : Lisa and Jumbo Play', {
+        url: '/lisaandjumboplay',
+        templateUrl: '../../templates/missions/grade1/4lisaandjumboplay.html',
+        controller: 'LisaAndJumboPlayController as lisa'
+      })
+
       .state('profile', {
         url:'/profile',
         templateUrl: '../../templates/profile.html',
