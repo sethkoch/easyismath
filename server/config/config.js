@@ -1,14 +1,16 @@
-var _ = require('lodash');
+(function() {
 
-var config = {
-  dev: 'development',
-  prod: 'production',
-  port: process.env.PORT || 8080
-};
+  var _ = require('lodash');
 
-process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
-config.env = process.env.NODE_ENV;
+  var config = {
+    dev: 'development',
+    prod: 'production',
+    port: process.env.PORT || 8080
+  };
 
-envconfig = require('./' + config.env);
+  process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
+  config.env = process.env.NODE_ENV;
+  envconfig = require('./' + config.env);
+  module.exports = _.merge(config, envconfig);
 
-module.exports = _.merge(config, envconfig);
+})();

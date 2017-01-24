@@ -1,5 +1,10 @@
-module.exports = {
-  db: {
-    url: 'mongodb://localhost/easyismath'
-  }
-};
+(function() {
+
+
+  module.exports = {
+    db: {
+      url: 'mongodb://localhost/easyismath'
+    }
+  };
+
+})();
