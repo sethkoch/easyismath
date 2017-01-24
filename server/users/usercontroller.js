@@ -28,11 +28,11 @@ module.exports = {
               medals: medals,
               level: level,
               grade1: 'Penguin Troubles',
-              grade2: 'Turtle Trouble',
-              grade3: 'Hawks Hurting',
-              grade4: 'Cows Coughing',
-              grade5: 'Whales Whinning',
-              grade6: 'Buffaloes Burping'
+              grade2: 'Coming soon ...',
+              grade3: 'Coming soon ...',
+              grade4: 'Coming soon ...',
+              grade5: 'Coming soon ...',
+              grade6: 'Coming soon ...'
             });
             newUser.save(function(err) {
               if (err) throw (err);

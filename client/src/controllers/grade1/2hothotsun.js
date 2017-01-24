@@ -1,46 +1,49 @@
 (function() {
-angular.module('easyismath')
-  .controller('HotHotSunController', ['$rootScope', 'onetwo', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onetwo, $sce, $scope, $window, $state, tools) {
-    //to lock up
-    if (!$rootScope.isAuthenticated) $state.go('home');
-    //makes sure level 1 has been completed, if not go to home
-    if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Pete") === -1) $state.go('home');
-    //makes sure this level has not already been completed
-    if (JSON.parse($window.localStorage.userProfile).medals.indexOf("Jumbo") !== -1) $state.go('home');
+  angular.module('easyismath')
+    .controller('HotHotSunController', ['$rootScope', 'onetwo', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onetwo, $sce, $scope, $window, $state, tools) {
+      //to lock up
+      if (!$rootScope.isAuthenticated) {
+        $state.go('home');
+      }
+      //makes sure level 1 has been completed, if not go to home
+      if (JSON.parse($window.localStorage.userProfile).medals.indexOf('Pete') === -1) {
+        $state.go('home');
+      }
+      //makes sure this level has not already been completed
+      if (JSON.parse($window.localStorage.userProfile).medals.indexOf('Jumbo') !== -1) {
+        $state.go('home');
+      }
 
-    var vm = this;
-    vm.hardData;
-    vm.image;
-    vm.text;
-    vm.button;
-    vm.clicked1 = onetwo.firstClick;
-    vm.clicked2 = onetwo.nextClick;
-    vm.counter = 1;
-    vm.problems = false;
-    vm.answer;
-    vm.correctAnswer;
-    vm.score = 0;
+      var vm = this;
+      vm.hardData;
+      vm.image;
+      vm.text;
+      vm.button;
+      vm.clicked1 = onetwo.firstClick;
+      vm.clicked2 = onetwo.nextClick;
+      vm.counter = 1;
+      vm.problems = false;
+      vm.answer;
+      vm.correctAnswer;
+      vm.score = 0;
+      //pulls data - from here
+      activate();
 
-    //pulls data - from here
-    activate();
-
-
-    function activate() {
+      function activate() {
         return getData().then(function() {
           vm.image = $sce.trustAsHtml(vm.hardData.images[0]);
-          vm.text = $sce.trustAsHtml(vm.hardData.text[0])
-          vm.button = $sce.trustAsHtml(vm.hardData.button[0])
+          vm.text = $sce.trustAsHtml(vm.hardData.text[0]);
+          vm.button = $sce.trustAsHtml(vm.hardData.button[0]);
         });
-    }
+      }
 
-    function getData() {
+      function getData() {
         return tools.getData('/api/gradeonemissiontwo')
-            .then(function(data) {
-                vm.hardData = data;
-                return vm.hardData;
-            });
-    }
-    // - to here
-
-  }])
+        .then(function(data) {
+          vm.hardData = data;
+          return vm.hardData;
+        });
+      }
+      // - to here
+    }]);
 })();
