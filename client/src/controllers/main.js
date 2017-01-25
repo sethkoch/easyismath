@@ -9,6 +9,7 @@
       var vm = this;
       // vm.authService = authService;
       vm.profile;
+      vm.logInToPlay = "Log in to play, it's free!"
       //this is neccesary to use authService from the navbar
       authService.getProfileDeferred().then(function(profile) {
         vm.profile = profile;

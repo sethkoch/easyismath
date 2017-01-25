@@ -58,7 +58,15 @@
 
       lockProvider.init({
         clientID: 'PPAP5SR3NyoW8oXgSg9fI3DZ38lCcA3o',
-        domain: 'easyismath.auth0.com'
+        domain: 'easyismath.auth0.com',
+        options: {
+          theme: {
+            logo: '../../content/easyismathsmall.png',
+          },
+          languageDictionary: {
+            title: "Ready for adventure?"
+          }
+        }
       });
 
       jwtOptionsProvider.config({

@@ -3,21 +3,21 @@
 <!-- Grade 1 box -->
 <div class='row firstRow'>
   <div class='col-md-3  descbox1'>Grade 1
-    <a ng-click="main.level()"><div class='descboxinner' ng-bind= "userStuff.grade1"> </div></a>
+    <a ng-click="main.level()"><div class='descboxinner' ng-bind= "userStuff.grade1 || main.logInToPlay"> </div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ng-click="main.level()"> Click you will</button>
   </div>
 
 <!-- Grade 2 box -->
   <div class='col-md-3 col-md-offset-1 descbox2'>Grade 2
-    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade2"> </div></a>
+    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade2 || main.logInToPlay"> </div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
   </div>
 
 <!-- Grade 3 box -->
   <div class='col-md-3 col-md-offset-1 descbox3'>Grade 3
-    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade3"> </div></a>
+    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade3 || main.logInToPlay"> </div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
   </div>
@@ -26,21 +26,21 @@
 <div class='row'>
 <!-- Grade 4 box -->
   <div class='col-md-3 col-md-offset-1 descbox4'>Grade 4
-    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade4"></div></a>
+    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade4 || main.logInToPlay"></div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
   </div>
 
 <!-- Grade 5 box -->
   <div class='col-md-3 col-md-offset-1 descbox5'>Grade 5
-    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade5"></div></a>
+    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade5 || main.logInToPlay"></div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
   </div>
 
 <!-- Grade 6 box -->
   <div class='col-md-3 col-md-offset-1 descbox6'>Grade 6
-    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade6"></div></a>
+    <a ui-sref="missions"><div class='descboxinner' ng-bind= "userStuff.grade6 || main.logInToPlay"></div></a>
     <hr>
     <button class="btn btn-lg btn-primary" ui-sref="missions"> Click you will</button>
   </div>
