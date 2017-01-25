@@ -49,6 +49,11 @@
           url: '/reward',
           templateUrl: '../../templates/reward.html',
           controller: 'RewardController as reward'
+        })
+
+        .state('comingsoon', {
+          url: '/comingsoon',
+          templateUrl: '../../templates/comingsoon.html',
         });
 
       lockProvider.init({
