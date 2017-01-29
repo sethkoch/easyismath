@@ -1,6 +1,5 @@
 (function() {
 
-
   module.exports = {
     //data for grade 1 mission 2
     sendData: function(req, res) {

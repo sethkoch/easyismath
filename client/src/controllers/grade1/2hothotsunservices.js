@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .factory('onetwo', ['$http', '$state', '$rootScope', '$sce', '$window', '$timeout', 'tools', function($http, $state, $rootScope, $sce, $window, $timeout, tools) {
 
@@ -74,4 +75,5 @@
       }
 
     }]);
+
 })();

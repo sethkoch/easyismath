@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('NewTownBluesController', ['$rootScope', 'onethree', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onethree, $sce, $scope, $window, $state, tools) {
       //to lock up
@@ -46,4 +47,5 @@
       }
       // - to here
     }]);
+
 })();

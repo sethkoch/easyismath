@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('ProfileController', ['$window', '$rootScope', function($window, $rootScope) {
 
@@ -16,4 +17,5 @@
       vm.lisa = vm.medals.indexOf('Lisa') !== -1 || false;
 
     }]);
+
 })();

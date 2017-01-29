@@ -12,8 +12,6 @@
 <body class='b1'>
 
 <!-- Begin nav bar -->
-
-
 <div ng-controller="NavbarController as nav">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -27,7 +25,6 @@
         </button>
         <a class="navbar-brand" ui-sref="home"><img src='https://d37rhhh8kt1fi0.cloudfront.net/img/easyismathsmall.png' /></a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->  <!-- from here -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav ">
@@ -37,38 +34,30 @@
           <li><a ui-sref="comingsoon">FAQ<span class="sr-only">(current)</span></a></li>
         </ul>
 
-
       <button ng-show="isAuthenticated" type="button" class="btn btn-primary navbar-btn navbar-right" ui-sref="profile">My Profile</button>
-
 
       <button ng-show="!isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.login()">Sign In</button>
 
       <button ng-show="isAuthenticated" type="button" class="btn btn-info navbar-btn navbar-right" ng-click="nav.authService.logout()">Sign Out</button>
-
-
       <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid --> <!-- to here -->
   </nav>
-
-
 </div>
 
 <!-- End Nav bar -->
-
-
 <div class='container'>
   <div ui-view></div>
 </div>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
+<script src='lib/angular-jwt.min.js'></script>
+<script src='lib/angular-lock.min.js'></script>
+<script src="dist/all.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-  <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
-  <script src='lib/angular-jwt.min.js'></script>
-  <script src='lib/angular-lock.min.js'></script>
-  <script src="dist/all.js"></script>
 </body>
 </html>

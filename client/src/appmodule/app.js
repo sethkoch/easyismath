@@ -1,7 +1,8 @@
 (function() {
+
   angular.module('easyismath', ['auth0.lock', 'angular-jwt', 'ui.router'])
 
-    .run(['$rootScope', 'authService', 'lock', 'authManager', '$window', function ($rootScope, authService, lock, authManager, $window) {
+    .run(['$rootScope', 'authService', 'lock', 'authManager', function ($rootScope, authService, lock, authManager) {
       // Put the authService on $rootScope so its methods
       // can be accessed from the nav bar
       $rootScope.authService = authService;
@@ -15,4 +16,5 @@
       lock.interceptHash();
 
     }]);
+
 })();

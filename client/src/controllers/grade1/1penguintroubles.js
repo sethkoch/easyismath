@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('PenguinTroublesController', ['$sce', '$http', 'tools', '$rootScope', 'oneone', '$window', '$state', function($sce, $http, tools, $rootScope, oneone, $window, $state) {
 
@@ -76,4 +77,5 @@
       };
 
     }]);
+
 })();

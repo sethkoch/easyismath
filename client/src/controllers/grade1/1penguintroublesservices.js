@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .factory('oneone', ['$http', '$state', '$rootScope', '$sce', '$window', function($http, $state, $rootScope, $sce, $window) {
 
@@ -18,4 +19,5 @@
       }
 
     }]);
+
 })();

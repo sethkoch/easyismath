@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('MainController', ['$rootScope', 'authService', 'userdata', '$state', '$window', function($rootScope, authService, userdata, $state, $window) {
       //if user is not authenticated then local storage, except for userProfile, gets wiped
@@ -24,4 +25,5 @@
       };
 
     }]);
+
 })();

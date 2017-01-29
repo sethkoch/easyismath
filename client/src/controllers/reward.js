@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('RewardController', ['$window', '$sce', '$state', function($window, $sce, $state) {
 
@@ -11,4 +12,5 @@
       }, 3000);
 
     }]);
+
 })();

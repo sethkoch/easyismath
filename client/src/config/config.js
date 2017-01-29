@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .config(['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOptionsProvider', function($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
 
@@ -76,4 +77,5 @@
       });
 
     }]);
+
 })();

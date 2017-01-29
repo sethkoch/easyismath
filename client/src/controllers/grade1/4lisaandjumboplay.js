@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('LisaAndJumboPlayController', ['$rootScope', 'onefour', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onefour, $sce, $scope, $window, $state, tools) {
       //to lock up
@@ -50,4 +51,5 @@
       }
       // - to here
     }]);
+
 })();

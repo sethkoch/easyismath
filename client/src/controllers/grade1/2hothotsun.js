@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('easyismath')
     .controller('HotHotSunController', ['$rootScope', 'onetwo', '$sce', '$scope', '$window', '$state', 'tools', function($rootScope, onetwo, $sce, $scope, $window, $state, tools) {
       //to lock up
@@ -46,4 +47,5 @@
       }
       // - to here
     }]);
+
 })();
